@@ -4,17 +4,19 @@
   min-height: 100vh;
 }
 .ide {
-  width: 70%;
+  width: 100%;
   margin: auto;
   margin-top: 20px;
+  max-width: 500px
 }
-.code {
+.code, .spec {
+  margin-top: 0px;
   width: 100%;
   border: 1px solid black;
   border-radius: 6px;
   padding: 20px;
 }
-.code textarea {
+.code textarea, .spec textarea {
   min-height: 200px;
 }
 .result {
@@ -23,4 +25,26 @@
   border-radius: 6px; 
   min-height: 50px;
   padding: 20px;
+  margin-bottom: 30px;
+}
+.default-content {
+  padding: 16px;
+  overflow: auto;
+  background: aliceblue;
+  min-height: 100vh;
+}
+.code-tab, .spec-tab {
+  display: inline-block;
+  margin: 0px 20px;
+  padding: 12px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right:  1px solid black;
+}
+.code-tab:hover, .spec-tab:hover {
+  cursor: pointer;
+}
+.active {
+  background-color: black;
+  color: white;
 }

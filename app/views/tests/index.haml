@@ -1,0 +1,7 @@
+.default-content
+  %h1
+    Builds
+  - current_user.tests.each do |test|
+    .test
+      = link_to "buld_#{test.id}", test_path(test)
+  = link_to 'new_test', new_test_path, class: 'new-test'
