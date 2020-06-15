@@ -9,4 +9,11 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    .common
+      .nav-bar
+        - if current_user
+          = link_to "log out", destroy_user_session_path, class: 'nav-item float-right', method: :delete
+        - else
+          = link_to "log in", new_user_session_path, class: 'nav-item float-right'
+          = link_to "sign up", new_user_registration_path, class: 'nav-item float-right'
+      = yield

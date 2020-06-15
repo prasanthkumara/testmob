@@ -8,4 +8,4 @@
       = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }
     .form-actions
       = f.button :submit, "Sign up"
-  = render "devise/shared/links"
+  = link_to "Log in", new_session_path(resource_name)
