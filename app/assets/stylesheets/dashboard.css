@@ -1,0 +1,25 @@
+.dashboard {
+  background: aliceblue;
+  min-height: 100vh;
+}
+.ide {
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+}
+.code {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 20px;
+}
+.code textarea {
+  min-height: 200px;
+}
+.result {
+  margin-top: 20px;
+  border: 1px solid black;
+  border-radius: 6px; 
+  min-height: 50px;
+  padding: 20px;
+}

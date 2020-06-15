@@ -1,1 +1,6 @@
-Nothing here Yet
+- if current_user && ['platform', 'client'].include?(current_user.usertype)
+  = render partial: 'users/dashboard'
+- else
+  .home
+    %h1
+      QUACO

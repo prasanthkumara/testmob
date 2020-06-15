@@ -1,0 +1,8 @@
+.dashboard
+  .ide
+    .code
+      = simple_form_for(:user, url: execute_user_url(current_user), method: :post, html: {remote: true, method: :post}) do |f|
+        .form-group
+          = f.text_area :code, class: 'form-control'
+        = f.submit 'execute', class: 'submit-code'
+    .result

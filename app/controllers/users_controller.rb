@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     render plain: 'fghj'
   end
 
+  def execute
+    @result = ['sdfgh', 'dddd']
+    render 'result'
+  end
+
   protected
 
   def check_user
