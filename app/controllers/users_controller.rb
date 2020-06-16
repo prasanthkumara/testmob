@@ -4,9 +4,16 @@ class UsersController < ApplicationController
     render plain: 'fghj'
   end
 
-  def execute
-    @result = ['sdfgh', 'dddd']
-    render 'result'
+  def request_demo
+    current_user.update usertype: 'pending'
+    redirect_to root_path
+  end
+
+  def accept_demo
+    if current_user.usertype == 'platform'
+      User.find(params[:id]).update usertype: 'client'
+    end
+    redirect_to root_path
   end
 
   protected

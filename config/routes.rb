@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   root to: "home#show"
-  resources :users
+  resources :users do 
+    put :request_demo, on: :member
+    put :accept_demo, on: :member
+  end
 
   resources :tests do
     post :execute, on: :member

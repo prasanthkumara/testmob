@@ -15,6 +15,7 @@ class TestsController < ApplicationController
   def create
     @test = current_user.tests.create test_params
     TestRunner.perform_later(@test.id)
+    render plain: 'started'
   end
 
   def update

@@ -1,13 +1,24 @@
-.dashboard
-  .ide
-    .code
-      enter code
-      = simple_form_for(@test, url: execute_user_url(current_user), method: :post, html: {remote: true, method: :post}) do |f|
-        = f.input :code
-        = f.submit 'execute', class: 'submit-code'
-    .code
-      or enter test
-      = simple_form_for(@test, url: execute_user_url(current_user), method: :post, html: {remote: true, method: :post}) do |f|
-        = f.input :spec
-        = f.submit 'execute', class: 'submit-code'
-    .result
+.dashboard.default-content
+  - if current_user.usertype.blank?
+    = link_to 'Request a demo', request_demo_user_path(current_user), class: 'request-demo', method: :put
+  - elsif current_user.usertype == 'client'
+    = link_to 'Use Quaco remotely', tests_path
+  - elsif current_user.usertype == 'pending'
+    = 'Request for demo pending'
+  - elsif current_user.usertype == 'platform'
+    .request-list
+      %h3
+        Pending Demo Requests
+      .clearfix
+      - User.where(usertype: 'pending').all.each do |u|
+        .demo-request
+          .float-left= u.email
+          .float-right= link_to 'accept', accept_demo_user_path(u), class: 'accept-demo-request', method: :put
+          .clearfix
+      .clearfix
+    .request-list
+      %h3
+        Scheduled Demo Requests
+      - User.where(usertype: 'client').all.each do |u|
+        .demo-request
+          = u.email

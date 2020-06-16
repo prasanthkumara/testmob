@@ -4,6 +4,6 @@ class RemoteConverter
   end
 
   def execute
-    @test.update spec: 'sdfghj'
+    @test.update code: @test.spec
   end
 end
