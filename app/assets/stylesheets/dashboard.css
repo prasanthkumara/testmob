@@ -9,6 +9,13 @@
   margin-top: 20px;
   max-width: 500px
 }
+.config-container {
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  max-width: 500px
+}
+
 .code, .spec {
   margin-top: 0px;
   width: 100%;
@@ -28,6 +35,9 @@
   padding: 20px;
   margin-bottom: 30px;
   background: floralwhite;
+}
+.result-line {
+  margin-bottom: 6px;
 }
 .default-content {
   padding: 16px;

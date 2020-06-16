@@ -24,6 +24,10 @@ class TestsController < ApplicationController
     TestRunner.perform_later(@test.id)
   end
 
+  def configure
+    redirect_to root_path unless current_user.usertype == 'platform'
+  end
+
   protected
 
   def test_params

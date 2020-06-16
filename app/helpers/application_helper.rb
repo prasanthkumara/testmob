@@ -2,7 +2,8 @@ module ApplicationHelper
   PHASE_MAP = {
     'tests_index' => 'builds',
     'tests_new'  => 'new_build',
-    'home_show' => 'users'
+    'home_show' => 'users',
+    'tests_configure' => 'config'
   }
 
   def phase(name)

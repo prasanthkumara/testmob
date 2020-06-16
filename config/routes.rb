@@ -10,5 +10,8 @@ Rails.application.routes.draw do
 
   resources :tests do
     post :execute, on: :member
+    get :configure, on: :collection
   end
+
+  resources :app_configs
 end

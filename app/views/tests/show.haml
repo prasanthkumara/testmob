@@ -1,17 +1,7 @@
 .dashboard.default-content
   .ide
-    .code-tab.float-left.active
-      code
-    .spec-tab.float-left
-      spec
-    .clearfix
     .code
       = simple_form_for(@test, html: {remote: true}) do |f|
         = f.input :code
-        = f.submit 'execute', class: 'submit-code'
-    
-    .spec.d-none
-      = simple_form_for(@test, method: :post, html: {remote: true, method: :post}) do |f|
-        = f.input :spec
         = f.submit 'execute', class: 'submit-code'
     .result

@@ -22,6 +22,7 @@
           = link_to 'New build', new_test_path, class: "#{phase('new_build')} sidebar-item"
           - if current_user.try(:usertype) == 'platform'
             = link_to 'demo requests', root_path, class: "#{phase('users')} sidebar-item"
+            = link_to 'configure', configure_tests_path, class: "#{phase('config')} sidebar-item"
         - if current_user && current_user.try(:usertype) == nil
           = link_to 'Demo', root_path, class: "#{phase('users')} sidebar-item"
       .main{class: (current_user.present? ? 'col-lg-9' : 'col-lg-12')}
