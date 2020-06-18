@@ -29,6 +29,7 @@ class TestRunner < ApplicationJob
           OutputSender.perform_later(@test.user_id, line, data)
         end
       end
+      exit
     end
 
   end
