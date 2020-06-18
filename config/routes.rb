@@ -13,5 +13,8 @@ Rails.application.routes.draw do
     get :configure, on: :collection
   end
 
-  resources :app_configs
+  resources :app_configs do
+    put :connect, on: :collection
+    put :disconnect, on: :collection
+  end
 end

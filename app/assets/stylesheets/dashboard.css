@@ -79,6 +79,14 @@
   color: yellow;
   border-radius: 4px;
 }
+.connection-action {
+  padding: 8px 12px;
+  margin: 12px;
+  display: inline-block;
+  background: blue;
+  color: yellow;
+  border-radius: 4px;
+}
 .demo-request {
   width: 100%;
   max-width: 500px;

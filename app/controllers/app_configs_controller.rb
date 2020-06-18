@@ -1,4 +1,15 @@
 class AppConfigsController < ApplicationController
+
+  def connect
+    Quaco.connect
+    redirect_to configure_tests_path
+  end
+
+  def disconnect
+    Quaco.disconnect
+    redirect_to configure_tests_path
+  end
+
   def update
     unless current_user.usertype == 'platform'
       redirect_to root_path and return

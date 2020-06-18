@@ -1,2 +1,3 @@
 class AppConfig < ApplicationRecord
+  
 end
