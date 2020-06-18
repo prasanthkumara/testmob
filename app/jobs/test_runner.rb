@@ -15,13 +15,14 @@ class TestRunner < ApplicationJob
 
 
     require 'net/telnet'
-
-    server = Net::Telnet::new('Host' => AppConfig.where(name: 'host').first.value,
+    
+    fork do
+      server = Net::Telnet::new('Host' => AppConfig.where(name: 'host').first.value,
                           'Port' => AppConfig.where(name: 'port').first.value.to_i,
                           'Telnetmode' => false)
     
-    @test = Test.find(test_id)
-    fork do
+      @test = Test.find(test_id)
+    
       @test.code.split(/\n/).each do |line|
         server.puts(line)
         server.waitfor(/./) do |data|
@@ -29,6 +30,6 @@ class TestRunner < ApplicationJob
         end
       end
     end
-    
+
   end
 end
