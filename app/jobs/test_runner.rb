@@ -16,7 +16,7 @@ class TestRunner < ApplicationJob
 
     require 'net/telnet'
     
-    fork do
+    if true
       server = Net::Telnet::new('Host' => AppConfig.where(name: 'host').first.value,
                           'Port' => AppConfig.where(name: 'port').first.value.to_i,
                           'Telnetmode' => false)
@@ -29,7 +29,7 @@ class TestRunner < ApplicationJob
           OutputSender.perform_later(@test.user_id, line, data)
         end
       end
-      exit
+      server.close
     end
 
   end
