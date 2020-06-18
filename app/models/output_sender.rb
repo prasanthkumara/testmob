@@ -2,7 +2,7 @@ class OutputSender < ApplicationJob
   O_MAP = {
     1 => "Command Executed Successfully",
     0 => "Command Failed",
-    -2 => "Emergency Stop pressed / Door open / Torque off"
+    -2 => "Emergency Stop pressed / Door open / Torque off",
     -4 => "Invalid Parameters",
     -5 => "Invalid API",
     -6 => "Outside Workspace",
