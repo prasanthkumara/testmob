@@ -2,9 +2,9 @@
   Quaco host
   = simple_form_for(AppConfig.where(name: 'host').first_or_create) do |f|
     = f.input :value
-    = f.submit 'set'
+    = f.submit
   %br
   Quaco port
   = simple_form_for(AppConfig.where(name: 'port').first_or_create) do |f|
     = f.input :value
-    = f.submit 'set'
+    = f.submit
