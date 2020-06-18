@@ -12,10 +12,11 @@ class OutputSender < ApplicationJob
     -10 => "Parameter data type is wrong"
   }
   def perform(user_id, line, output)
+    output_code = output.encode("UTF-8", invalid: :replace).strip.to_i
     @user = User.find(user_id)
     ApplicationCable::NotificationsChannel.broadcast_to(
       @user,
-      message: "<div class='result-line'>#{line}<br/>#{O_MAP[output]}</div>"
+      message: "<div class='result-line'>#{line}<br/>#{O_MAP[output_code]}</div>"
     )
   end
 end

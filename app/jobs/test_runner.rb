@@ -3,9 +3,10 @@ class TestRunner < ApplicationJob
     @test = Test.find(test_id)
   
     @test.code.split(/\n/).each do |line|
-      Quaco.connection.puts(line)
-      Quaco.connection.waitfor(/./) do |data|
+      @result = nil
+      Quaco.connection.cmd(line) do |data| 
         OutputSender.perform_later(@test.user_id, line, data)
+        break
       end
     end
   end
