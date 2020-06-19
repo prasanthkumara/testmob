@@ -19,6 +19,6 @@ class Quaco
   end
 
   def self.execute(user_id, line)
-    self.connection.write(user_id, line)
+    self.connection.execute(user_id, line)
   end
 end
