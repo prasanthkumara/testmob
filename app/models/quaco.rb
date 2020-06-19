@@ -1,7 +1,7 @@
 class Quaco
   @@connection = nil
   def self.connect(type)
-    if type == 'socket'
+    if type == 'tcp'
       @@connection = QuacoTcp
       QuacoTcp.connect
     else

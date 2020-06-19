@@ -1,7 +1,7 @@
 class AppConfigsController < ApplicationController
 
   def connect
-    Quaco.connect
+    Quaco.connect(params[:type])
     redirect_to configure_tests_path
   end
 
