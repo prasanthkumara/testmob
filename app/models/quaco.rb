@@ -1,6 +1,7 @@
 class Quaco
   @@connection = nil
   def self.connect(type)
+    type = 'telnet'
     if type == 'tcp'
       @@connection = QuacoTcp
       QuacoTcp.connect

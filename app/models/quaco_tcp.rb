@@ -17,7 +17,7 @@ class QuacoTcp
 
   def self.execute(user_id, line)
     self.connection.write(line)
-    data = self.connection.read(1024)
+    data = self.connection.read(1)
     OutputSender.perform_later(user_id, line, data)
   end
 end

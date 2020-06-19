@@ -20,6 +20,7 @@ class QuacoTelnet
   def self.execute(user_id, line)
     self.connection.cmd(line) do |data| 
       OutputSender.perform_later(user_id, line, data)
+      sleep(1)
       break
     end
   end
