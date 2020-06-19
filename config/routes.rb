@@ -17,4 +17,7 @@ Rails.application.routes.draw do
     put :connect, on: :collection
     put :disconnect, on: :collection
   end
+
+  require 'resque/server'
+  mount Resque::Server, at: '/jobs'
 end

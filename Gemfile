@@ -76,4 +76,4 @@ gem 'redcarpet'
 gem 'markdown-rails'
 gem "google-cloud-storage", "~> 1.8", require: false
 gem 'net-telnet'
-
+gem 'resque'
