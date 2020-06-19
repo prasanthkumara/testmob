@@ -1,0 +1,23 @@
+class QuacoTcp
+  require 'socket'
+  @@connection = nil
+
+  def self.connect
+    @@connection = TCPSocket.new(AppConfig.where(name: 'host').first.value, AppConfig.where(name: 'port').first.value.to_i)
+  end
+
+  def self.disconnect
+    @@connection.close
+    @@connection = nil
+  end
+
+  def self.connection
+    @@connection
+  end
+
+  def self.execute(user_id, line)
+    self.connection.write(line)
+    data = sock.read(1024)
+    OutputSender.perform_later(user_id, line, data)
+  end
+end

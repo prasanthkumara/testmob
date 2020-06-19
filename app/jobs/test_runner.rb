@@ -3,11 +3,7 @@ class TestRunner < ApplicationJob
     @test = Test.find(test_id)
   
     @test.code.split(/\n/).each do |line|
-      @result = nil
-      Quaco.connection.cmd(line) do |data| 
-        OutputSender.perform_later(@test.user_id, line, data)
-        break
-      end
+      Quaco.execute(@test.user_id, line) if line.present?
     end
   end
 end
