@@ -10,7 +10,6 @@ class QuacoTelnet
 
   def self.disconnect
     @@connection.close
-    @@connection = nil
   end
 
   def self.connection

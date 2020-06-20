@@ -10,18 +10,17 @@
     = f.submit
 
   %br
-  .connection.float-left
-    %h3
-      TCP
-    - if QuacoTcp.connection.nil?
-      = link_to 'Connect to Quaco via Socket', connect_app_configs_path(type: 'tcp'), class: 'connection-action', method: :put
-    - else
-      = link_to 'Disconnect from Quaco Socket', disconnect_app_configs_path(type: 'tcp'), class: 'connection-action', method: :put
+  - if false
+    .connection.float-left
+      %h3
+        TCP
+      - if QuacoTcp.connection.nil?
+        = link_to 'Connect to Quaco via Socket', connect_app_configs_path(type: 'tcp'), class: 'connection-action', method: :put
+      - else
+        = link_to 'Disconnect from Quaco Socket', disconnect_app_configs_path(type: 'tcp'), class: 'connection-action', method: :put
 
   .connection.float-left
     %h3
       TELNET
-    - if QuacoTelnet.connection.nil?
       = link_to 'Connect to Quaco via Telnet', connect_app_configs_path(type: 'telnet'), class: 'connection-action', method: :put
-    - else
       = link_to 'Disconnect from Quaco Telnet', disconnect_app_configs_path(type: 'telnet'), class: 'connection-action', method: :put
