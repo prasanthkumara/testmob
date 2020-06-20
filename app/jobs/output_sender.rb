@@ -16,8 +16,8 @@ class OutputSender < ApplicationJob
     @user = User.find(user_id)
     ApplicationCable::NotificationsChannel.broadcast_to(
       @user,
-      #message: "<div class='result-line'>#{line}<br/>#{O_MAP[output_code]}</div>"
-      message: output
+      message: "<div class='result-line'>#{line}<br/>#{output_code}</div>"
+      #message: output
     )
   end
 end
