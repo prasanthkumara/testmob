@@ -1,13 +1,14 @@
 class Quaco
   @@connection = nil
   def self.connect(type)
-    type = 'telnet'
     if type == 'tcp'
       @@connection = QuacoTcp
       QuacoTcp.connect
+      QuacoTcp.connection.read
     else
       @@connection = QuacoTelnet
       QuacoTelnet.connect
+      QuacoTelnet.connection.waitfor(/\n/)
     end
   end
 

@@ -3,7 +3,8 @@ class QuacoTcp
   @@connection = nil
 
   def self.connect
-    @@connection = TCPSocket.new(AppConfig.where(name: 'host').first.value, AppConfig.where(name: 'port').first.value.to_i)
+    #@@connection = TCPSocket.new(AppConfig.where(name: 'host').first.value, AppConfig.where(name: 'port').first.value.to_i)
+    @@connection = TCPSocket.open(AppConfig.where(name: 'host').first.value,AppConfig.where(name: 'port').first.value.to_i)
   end
 
   def self.disconnect
@@ -16,8 +17,8 @@ class QuacoTcp
   end
 
   def self.execute(user_id, line)
-    self.connection.write(line)
-    data = self.connection.read(1)
+    self.connection.print(line)
+    data = self.connection.read
     OutputSender.perform_later(user_id, line, data)
   end
 end
